@@ -76,6 +76,26 @@ class DatabaseConnection:
         except Error as e:
             print(f"Error executing write query: {e}")
 
+    def fetch_item_by_id(self, item_id: str) -> Any:
+        """Get a clothing item from ID.
+
+        Args:
+            item_id (str): Cloth ID
+
+        Returns:
+            Optional[Any]: The requested clothing item.
+        """
+        try:
+            cursor = self.connection.cursor(dictionary=True)
+            query = f"SELECT * FROM {self.table} WHERE id = %s"
+            cursor.execute(query, (item_id,))
+            result = cursor.fetchone()
+            cursor.close()
+            return result
+        except Error as e:
+            print(f"Error fetching item by ID: {e}")
+            return None
+
     def fetch_all_data(self) -> Any:
         """Get all data from the table specified in config.json.
 
