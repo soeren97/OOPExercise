@@ -41,24 +41,20 @@ class Clothes:
         Returns:
             str: SQL insert query.
         """
-        attribute_names = [
-            "id",
-            "category",
-            "size",
-            "color",
-            "price",
-            "material",
-            "style",
+        attributes = vars(self)
+        attribute_names = list(attributes.keys())
+        attribute_values = list(attributes.values())
+
+        # Filter out None values and convert others to string if necessary
+        attribute_strings = [
+            f"'{value}'" if isinstance(value, str) else str(value)
+            for value in attribute_values
+            if value is not None
         ]
-        attribute_values = [getattr(self, name) for name in attribute_names]
-        attribute_string = ", ".join(
-            [
-                f"'{value}'" if isinstance(value, str) else str(value)
-                for value in attribute_values
-            ]
-        )
+
+        # Create the SQL query
         query = f"""INSERT INTO Clothes ({', '.join(attribute_names)})
-                    VALUES ({attribute_string})"""
+VALUES ({', '.join(attribute_strings)})"""
         return query
 
 

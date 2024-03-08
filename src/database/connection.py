@@ -1,6 +1,6 @@
 """Connection to SQL database."""
 
-from typing import Any
+from typing import Any, Optional
 
 import mysql.connector
 from mysql.connector import Error
@@ -82,4 +82,4 @@ class DatabaseConnection:
         Returns:
             Any: All data from the table.
         """
-        return self.connection.execute_query(f"SELECT * FROM {self.table}")
+        return self.execute_query(f"SELECT * FROM {self.table}")
