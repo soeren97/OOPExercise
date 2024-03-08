@@ -96,6 +96,23 @@ class DatabaseConnection:
             print(f"Error fetching item by ID: {e}")
             return None
 
+    def remove_item_by_id(self, item_id: int) -> None:
+        """Remove an item from the database by its ID.
+
+        Args:
+            item_id (int): ID of the item to remove.
+        """
+        try:
+            cursor = self.connection.cursor()
+            query = f"DELETE FROM {self.table} WHERE id = %s"
+            cursor.execute(query, (item_id,))
+            self.connection.commit()
+            print("Item removed successfully")
+        except Error as e:
+            print(f"Error removing item from the database: {e}")
+        finally:
+            cursor.close()
+
     def fetch_all_data(self) -> Any:
         """Get all data from the table specified in config.json.
 
