@@ -58,7 +58,7 @@ class ClothesFactory:
         Returns:
             str: Id of the clothing item.
         """
-        return int(f"{ClothesFactory.item_id[category]}{int(time.time())}")
+        return int(f"{ClothesFactory.item_id[category]}{int(time.perf_counter_ns())}")
 
     def create_random_clothes(self) -> Clothes:
         """Create a random piece of clothing.
