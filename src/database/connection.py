@@ -1,6 +1,6 @@
 """Connection to SQL database."""
 
-from typing import Any, Optional
+from typing import Any
 
 import mysql.connector
 from mysql.connector import Error
