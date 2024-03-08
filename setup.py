@@ -9,6 +9,7 @@ SETUP_REQUIRES = [
 
 INSTALL_REQUIRES = [
     "pylint",
+    "mysql",
 ]
 
 EXTRAS_REQUIRE = {
