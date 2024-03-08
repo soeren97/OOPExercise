@@ -1,9 +1,9 @@
 # OOP excercise
-This exercise is designed to familiarize myself with object oriented programing universal modeling language and SQL. 
+This exercise is designed to familiarize myself with object oriented programing, universal modeling language and SQL. 
 
-The code is executed from `main.py` and creates an SQL server as well as adding an item to it. 
+The code is executed from `main.py` and creates an SQL server as well as adding some items to it and fetching them again.
 
-Further more UML diagrams can ge generated using the `uml_generation.py` script to visualize the classes used in all scripts.
+Furthermore UML diagrams can ge generated using the `uml_generation.py` script to visualize the classes used in all scripts.
 
 ## Installation Guide
 
