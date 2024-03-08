@@ -31,15 +31,17 @@ def main() -> None:
     # Create factory to create clothes
     factory = ClothesFactory()
 
-    # Generate query
-    query = factory.create_random_clothes().to_sql_query()
+    # Generate random clothing
+    for i in range(10):
+        # Generate query
+        query = factory.create_random_clothes().to_sql_query()
 
-    # Write to SQL server
-    connection.execute_query(query)
+        # Write to SQL server
+        connection.execute_query(query)
 
     # Fetch entire database
-    result = connection.fetch_all_data()
-    print(result)
+    all_data = connection.fetch_all_data()
+    print(all_data)
 
 
 if __name__ == "__main__":
